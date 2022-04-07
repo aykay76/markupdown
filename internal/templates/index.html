@@ -1,0 +1,25 @@
+{{ template "head.html" }}
+
+<h1>Markdown</h1>
+    <div class="row">
+        <div class="card col-sm-6">
+            <textarea id="markdown">
+Markup your markdown
+            </textarea>
+        </div>
+        <div class="card col-sm-6">
+            <div id="readme" class="row" style="padding: 10px;">
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        document.getElementById('markdown').addEventListener('input', (ev) => {
+            text = document.getElementById('markdown').value
+            document.getElementById('readme').innerHTML = marked.parse(text)
+        })
+    </script>
+    
+{{ template "tail.html" }}
